@@ -87,8 +87,6 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 If you checked Auto generate password you'll have a prompt with a blue ribbon in the next page
 
-![](../assets/part-7/create-rds-creds-1.png)
-
 Click on `View credentials settings` and save the username and password in a safe location OR optionally, yiu acn view your credentials by clicking on the created Database
 
 ![](./assests/rds-endpoint.png)
@@ -101,7 +99,7 @@ Write the name of your instances, and select Ubuntu as choice of Linux Distro.
 
 ![s1](./assests/ec2-1.png)
 
-Select your key-pair if you dont have a key-pair create one
+Select your key-pair if you don't have a key-pair create one
 
 ![s1](./assests/ec2-2.png)
 
@@ -117,7 +115,17 @@ Next, select VPC if you ave created any previously OR use default VPC, and choos
 
 - Leave everything else as it's and click create
 
-## Step 1: Update system and install Apache Webserver
+## Step 3 : Connect to EC2 instance
+
+On the EC2 console Select the Instance you created and click on connect which will launch a Dashboard
+
+Select SSH client and follow the instructions on how to connect.
+
+![s1](./assests/connect-1.png)
+
+![s1](./assests/connect-2.png)
+
+## Step 4 : Update system and install Apache Webserver
 
 To begin, update the package manager cache
 
@@ -125,13 +133,13 @@ To begin, update the package manager cache
 
 ![image](./assests/install-apache2.png)
 
-## Step 2: Install PHP7.4
+## Step 5 : Install PHP7.4
 
     sudo apt install software-properties-common; sudo add-apt-repository ppa:ondrej/php; sudo apt update; sudo apt-get install -y php7.4 php7.4-cli php7.4-zip php7.4-json php7.4-common php7.4-mysql php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath php7.4-simple php7.4-intl
 
 ![image](./assests/install-php.png)
 
-## Step 3: Connect to AWS RDS using the Endpoint and Create Database
+## Step 6 : Connect to AWS RDS using the Endpoint and Create Database
 
     sudo apt install mysql-client
 
@@ -146,7 +154,7 @@ To begin, update the package manager cache
 
 ![image](./assests/mysql-2.png)
 
-## Step 4: Install Prestashop Version 1.7.8.8
+## Step 7 : Install Prestashop Version 1.7.8.8
 
 Download the zip file and then unzip the downloaded file.
 
@@ -169,21 +177,21 @@ The directory permissions need to be set accordingly
 
 To complete the installation, go to http://yourpublicipaddress
 
-## Step 5: Choose your language then click Next
+## Step 8 : Choose your language then click Next
 
 ![image](./assests/set-1.png)
 
-## Step 6: Click "Next" after agreeing to the terms and conditions.
+## Step 9 : Click "Next" after agreeing to the terms and conditions.
 
 ![image](./assests/set-2.png)
 
-## Step 7: Add information about your store
+## Step 10 : Add information about your store
 
 ![image](./assests/set-3.png)
 
 To enable SSL for your e-commerce website, you need to enable SSL
 
-## Step 8 : Configure your database with the credentials you created when creating your AWS RDS and test the connection
+## Step 11 : Configure your database with the credentials you created when creating your AWS RDS and test the connection
 
 ![image](./assests/set-4.png)
 
