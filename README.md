@@ -40,7 +40,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - In **Templates** choose `Free tier`, and you'll see that you're restricted to `Single DB instance` in the next card
 
- ![](./assests/rds-3.png)
+  ![](./assests/rds-3.png)
 
 - In Settings choose a name for your instance identifier (`udapeople-db`)
 
@@ -89,37 +89,33 @@ If you checked Auto generate password you'll have a prompt with a blue ribbon in
 
 ![](../assets/part-7/create-rds-creds-1.png)
 
-Click on `View credentials settings` and save the username and password in a safe location
+Click on `View credentials settings` and save the username and password in a safe location OR optionally, yiu acn view your credentials by clicking on the created Database
 
+![](./assests/rds-endpoint.png)
 
-
-
-## Step 1: Create a Public EC2 Instance**
+## Step 2: Create a Public EC2 Instance
 
 Navigate to the ec2 console and click on Launch Instance
 
-![s1](/images/e1.png)
+Write the name of your instances, and select Ubuntu as choice of Linux Distro.
 
-Write the name of your instances, select the number of instances and use Ubuntu as choice of Linux Distro.
-
-![s1](/images/e2.png)
+![s1](./assests/ec2-1.png)
 
 Select your key-pair if you dont have a key-pair create one
 
-Next, select the VPC that you previously created, and choose any of the private subnet, Disable the Auto-Assigned Public IP, and finally Create a Security Group keeping the default settings then click on Launch Instance.
+![s1](./assests/ec2-2.png)
 
-![s1](/images/e3.png)
+Next, select VPC if you ave created any previously OR use default VPC, and choose any of the public subnet, Enable Auto-Assigned Public IP, and finally Create a Security Group keeping the default settings then click on Launch Instance.
 
+## Security Group for EC2 instance traffic
 
+- On AWS Management Console navigate to `EC2` > `Security Groups` > `Create security group`
 
+- Add an inbound rule for `All TCP` from `Anywhere` (basically Protocol: `TCP`, Port: `0-65536`, Source: `0.0.0.0/0`)
 
+  ![](./assests/web-sg.png)
 
-
-
-
-
-
-
+- Leave everything else as it's and click create
 
 ## Step 1: Update system and install Apache Webserver
 
