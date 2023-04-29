@@ -13,7 +13,7 @@ PrestaShop is easy to use and offers a responsive store interface for shoppers. 
 - Ubuntu 20.04 0r higher
 - System Requirements 1GB of RAM, 2 CPU Cores, 1 GB of Disk space
 - Apache2 Webserver which  is one of the most popular web servers in the world.
-- AWS RDS (MYSQL) 5.0 or higher
+- AWS RDS (MYSQL) 5.0 or higher: MYSQL is a popular database management system used within PHP environments
 - PHP7.4 which is a general-purpose open-source scripting language and one of the most popular programming languages for web development
 
 ## Step 1: Update system and install Apache Webserver
@@ -24,10 +24,46 @@ To begin, update the package manager cache
 
 ![image](./assests/install-apache2.png)
 
-## Step 2:Install PHP7.4
+## Step 2: Install PHP7.4
 
     sudo apt install software-properties-common; sudo add-apt-repository ppa:ondrej/php; sudo apt update; sudo apt-get install -y php7.4 php7.4-cli php7.4-zip php7.4-json php7.4-common php7.4-mysql php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath php7.4-simple php7.4-intl
 
+![image](./assests/install-php.png)
+
+## Step 3: Connect to AWS RDS using the Endpoint and Create Database
+
+    sudo apt install mysql-client
+
+![image](./assests/mysql-1.png)
+
+    sudo mysql -h test-database.c4v46hctkald.us-east-1.rds.amazonaws.com -u admin -p
+---
+
+    create database db;
+    show databases;
+    exit
+
+![image](./assests/mysql-2.png)
+
+## Step 4: Install Prestashop Version 1.7.8.8
+
+Download the zip file and then unzip the downloaded file.
+
+    cd /var/www/html; sudo curl -LO https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.8.zip; sudo apt install unzip; ls; sudo unzip prestashop_1.7.8.8.zip
+
+![image](./assests/install-presta-1.png)
+
+After unzipping the downloaded file, you will get prestashop.zip, and then you can store it in /var/www/html
+
+    sudo unzip prestashop.zip; ls
+
+![image](./assests/install-presta-2.png)
+
+The directory permissions need to be set accordingly
+
+    sudo chown -R www-data:www-data /var/www/html/; sudo chmod -R 755 /var/www/html/; sudo a2enmod rewrite; sudo systemctl restart apache2.service; sudo rm -rf index.html
+
+![image](./assests/permission.png)
 
 
 
