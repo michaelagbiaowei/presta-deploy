@@ -66,10 +66,30 @@ The directory permissions need to be set accordingly
 ![image](./assests/permission.png)
 
 
+To complete the installation, go to http://yourpublicipaddress
 
+## Step 5: Choose your language then click Next
 
+![image](./assests/set-1.png)
 
+## Step 6: Click "Next" after agreeing to the terms and conditions.
 
+![image](./assests/set-2.png)
 
+## Step 7: Add information about your store
 
+![image](./assests/set-3.png)
 
+To enable SSL for your e-commerce website, you need to enable SSL
+
+## Step 8 : Configure your database with the credentials you created when creating your AWS RDS and test the connection
+
+![image](./assests/set-4.png)
+
+After installation, a window will appear
+
+![image](./assests/set-5.png)
+
+Finally, close the window and revist your your ste using http://yourpublicaddress
+
+![image](./assests/set-6.png)
