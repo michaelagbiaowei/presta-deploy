@@ -6,15 +6,120 @@ PrestaShop is an open-source E-Commence platform that is free to use. It is one 
 
 PrestaShop is easy to use and offers a responsive store interface for shoppers. Prestashop It provides a complete set of features free of cost.
 
-
-
 ## Requirements to install Prestashop:
 
 - Ubuntu 20.04 0r higher
 - System Requirements 1GB of RAM, 2 CPU Cores, 1 GB of Disk space
 - Apache2 Webserver which  is one of the most popular web servers in the world.
-- AWS RDS (MYSQL) 5.0 or higher: MYSQL is a popular database management system used within PHP environments
+- AWS RDS Instance (MYSQL) 5.0 or higher: MYSQL is a popular database management system used within PHP environments
 - PHP7.4 which is a general-purpose open-source scripting language and one of the most popular programming languages for web development
+
+## Step 1: Create a publicly accessible MYSQL database in RDS
+
+We need to create a publicly accessible RDS instance with minimal cost to hold our application data
+
+## Security Group for MYSQL traffic
+
+- On AWS Management Console navigate to `EC2` > `Security Groups` > `Create security group`
+
+- Add an inbound rule for `MYSQL` from `Anywhere` (basically Protocol: `TCP`, Port: `5432`, Source: `0.0.0.0/0`)
+
+  ![](./assests/pg-sg-2.png)
+
+- Leave everything else as it's and click create
+
+## Create an RDS Instance
+
+**Please follow this section very carefully to avoid DB problems in the upcoming stages**
+
+- On AWS Management Console navigate to `RDS` > `Databases` > `Create database`
+
+- In the first card choose `Standard Create`, and in **Engine** options choose `MYSQL` with the **default** version
+
+  ![](./assests/rds-2.png)
+
+- In **Templates** choose `Free tier`, and you'll see that you're restricted to `Single DB instance` in the next card
+
+ ![](./assests/rds-3.png)
+
+- In Settings choose a name for your instance identifier (`udapeople-db`)
+
+- Under **credentials** choose a username and a password (username: `postgres`, password: Check `Auto generate a password`) or input your custom password
+
+- In **Instance configuration** you can select any available option (`db.t4g.micro`)
+
+   ![](./assests/rds-4.png)
+
+- In Storage make sure to **uncheck** `Enable storage autoscaling`
+
+   ![](./assests/rds-5.png)
+
+- **Important**: In **Connectivity** make sure you choose the correct values
+
+  - **VPC**: `Default VPC`
+  - **Subnet group**: `default`
+  - **Public access**: `Yes`
+  - **VPC Security Group**: `Choose existing`
+    - **Remove** `default`
+    - **Add** the security group created in the previous step (`Public-MYSQL-RDS`)
+  - **Availability Zone**: `No preference`
+  - **Additional configuration**:
+    - **Database port: `3306`**
+
+  ![](./assests/rds-6.png)
+
+  ![](./assests/rds-7.png)
+
+- In **Database authentication** choose `Password authentication`
+  
+    ![](./assests/rds-8.png)
+
+- **Important**: Open the Additional configuration card
+
+  - In Database options set **Initial database name** to a value (`test`)
+
+  - Optional: You can disable **Encryption**, **Backup**, **Monitoring**, and other checked features
+    ![](./assests/rds-9.png)
+
+    ![](./assests/rds-10.png)
+
+- Finally, create a database
+
+If you checked Auto generate password you'll have a prompt with a blue ribbon in the next page
+
+![](../assets/part-7/create-rds-creds-1.png)
+
+Click on `View credentials settings` and save the username and password in a safe location
+
+
+
+
+## Step 1: Create a Public EC2 Instance**
+
+Navigate to the ec2 console and click on Launch Instance
+
+![s1](/images/e1.png)
+
+Write the name of your instances, select the number of instances and use Ubuntu as choice of Linux Distro.
+
+![s1](/images/e2.png)
+
+Select your key-pair if you dont have a key-pair create one
+
+Next, select the VPC that you previously created, and choose any of the private subnet, Disable the Auto-Assigned Public IP, and finally Create a Security Group keeping the default settings then click on Launch Instance.
+
+![s1](/images/e3.png)
+
+
+
+
+
+
+
+
+
+
+
 
 ## Step 1: Update system and install Apache Webserver
 
