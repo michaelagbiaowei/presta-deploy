@@ -79,6 +79,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
   - In Database options set **Initial database name** to a value (`test`)
 
   - Optional: You can disable **Encryption**, **Backup**, **Monitoring**, and other checked features
+    
     ![](./assests/rds-9.png)
 
     ![](./assests/rds-10.png)
