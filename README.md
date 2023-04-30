@@ -88,7 +88,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 If you checked Auto generate password you'll have a prompt with a blue ribbon in the next page
 
-Click on `View credentials settings` and save the username and password in a safe location OR optionally, yiu acn view your credentials by clicking on the created Database
+Click on `View credentials settings` and save the username and password in a safe location.
 
 ![](./assests/rds-endpoint.png)
 
