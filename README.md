@@ -42,7 +42,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
   ![](./assests/rds-3.png)
 
-- In Settings choose a name for your instance identifier (`udapeople-db`)
+- In Settings choose a name for your instance identifier (`test-database`)
 
 - Under **credentials** choose a username and a password (username: `postgres`, password: Check `Auto generate a password`) or input your custom password
 
