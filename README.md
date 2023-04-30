@@ -151,7 +151,7 @@ To begin, update the package manager cache
 
 ![image](./assests/mysql-2.png)
 
-## Step 7 : Install Prestashop Version 1.7.8.8
+## Step 7 : Install Prestashop v1.7.8.8
 
 Download the zip file and then unzip the downloaded file.
 
