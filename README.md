@@ -61,7 +61,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
   - **Public access**: `Yes`
   - **VPC Security Group**: `Choose existing`
     - **Remove** `default`
-    - **Add** the security group created in the previous step (`Public-MYSQL-RDS`)
+    - **Add** the security group created in the previous step (`pgsql-sg`)
   - **Availability Zone**: `No preference`
   - **Additional configuration**:
     - **Database port: `3306`**
