@@ -22,7 +22,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - On AWS Management Console navigate to `EC2` > `Security Groups` > `Create security group`
 
-- Add an inbound rule for `MYSQL` from `Anywhere` (basically Protocol: `TCP`, Port: `5432`, Source: `0.0.0.0/0`)
+- Add an inbound rule for `MYSQL` from `Anywhere` (basically Protocol: `TCP`, Port: `3306`, Source: `0.0.0.0/0`)
 
   ![](./assests/pg-sg-2.png)
 
