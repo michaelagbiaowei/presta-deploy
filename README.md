@@ -142,7 +142,7 @@ To begin, update the package manager cache
 
 ![image](./assests/mysql-1.png)
 
-    sudo mysql -h test-database.c4v46hctkald.us-east-1.rds.amazonaws.com -u admin -p
+    sudo mysql -h YourRdsEndpoint -u admin -p
 ---
 
     create database db;
