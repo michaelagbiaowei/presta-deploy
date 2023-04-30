@@ -44,7 +44,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - In Settings choose a name for your instance identifier (`test-database`)
 
-- Under **credentials** choose a username and a password (username: `postgres`, password: Check `Auto generate a password`) or input your custom password
+- Under **credentials** choose a username and a password (username: `admin`, password: Check `Auto generate a password`) or input your custom password
 
 - In **Instance configuration** you can select any available option (`db.t4g.micro`)
 
