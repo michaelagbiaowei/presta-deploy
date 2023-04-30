@@ -98,11 +98,9 @@ Write the name of your instances, and select Ubuntu as choice of Linux Distro.
 
 ![s1](./assests/ec2-1.png)
 
-Select your key-pair if you don't have a key-pair create one
+Select your `key-pair` if you don't have a key-pair create one
 
-![s1](./assests/ec2-2.png)
-
-Next, select VPC if you ave created any previously OR use default VPC, and choose any of the public subnet, Enable Auto-Assigned Public IP, and finally Create a Security Group keeping the default settings then click on Launch Instance.
+In `Connectivity`, make sure you choose the correct values for your customized VPC **OR** use `default VPC`, and choose any of the public subnet, Enable Auto-Assigned Public IP, and finally Create a Security Group keeping the default settings then click on Launch Instance.
 
 ## Security Group for EC2 instance traffic
 
