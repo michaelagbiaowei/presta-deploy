@@ -90,8 +90,6 @@ If you checked Auto generate password you'll have a prompt with a blue ribbon in
 
 Click on `View credentials settings` and save the username and password in a safe location.
 
-![](./assests/rds-endpoint.png)
-
 ## Step 2: Create a Public EC2 Instance
 
 Navigate to the ec2 console and click on Launch Instance
