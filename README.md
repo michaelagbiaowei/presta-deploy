@@ -1,6 +1,6 @@
 ## **How to install and setup Prestashop on AWS**
 
-![image](./assests/image.jpg)
+![image](./assets/image.jpg)
 
 PrestaShop is an open-source E-Commence platform that is free to use. It is one of the most popular E-Commence website builder platforms and has an intuitive interface that makes it easy to manage your online store.
 
@@ -24,7 +24,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - Add an inbound rule for `MYSQL` from `Anywhere` (basically Protocol: `TCP`, Port: `3306`, Source: `0.0.0.0/0`)
 
-  ![](./assests/pg-sg-2.png)
+  ![](./assets/pg-sg-2.png)
 
 - Leave everything else as it's and click create
 
@@ -36,11 +36,11 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - In the first card choose `Standard Create`, and in **Engine** options choose `MYSQL` with the **default** version
 
-  ![](./assests/rds-2.png)
+  ![](./assets/rds-2.png)
 
 - In **Templates** choose `Free tier`, and you'll see that you're restricted to `Single DB instance` in the next card
 
-  ![](./assests/rds-3.png)
+  ![](./assets/rds-3.png)
 
 - In Settings choose a name for your instance identifier (`test-database`)
 
@@ -48,11 +48,11 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - In **Instance configuration** you can select any available option (`db.t4g.micro`)
 
-   ![](./assests/rds-4.png)
+   ![](./assets/rds-4.png)
 
 - In Storage make sure to **uncheck** `Enable storage autoscaling`
 
-   ![](./assests/rds-5.png)
+   ![](./assets/rds-5.png)
 
 - **Important**: In **Connectivity** make sure you choose the correct values
 
@@ -66,13 +66,13 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
   - **Additional configuration**:
     - **Database port: `3306`**
 
-  ![](./assests/rds-6.png)
+  ![](./assets/rds-6.png)
 
-  ![](./assests/rds-7.png)
+  ![](./assets/rds-7.png)
 
 - In **Database authentication** choose `Password authentication`
   
-    ![](./assests/rds-8.png)
+    ![](./assets/rds-8.png)
 
 - **Important**: Open the Additional configuration card
 
@@ -80,9 +80,9 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
   - Optional: You can disable **Encryption**, **Backup**, **Monitoring**, and other checked features
     
-    ![](./assests/rds-9.png)
+    ![](./assets/rds-9.png)
 
-    ![](./assests/rds-10.png)
+    ![](./assets/rds-10.png)
 
 - Finally, create a database
 
@@ -96,7 +96,7 @@ Navigate to the ec2 console and click on Launch Instance
 
 Write the name of your instances, and select Ubuntu as choice of Linux Distro.
 
-![s1](./assests/ec2-1.png)
+![s1](./assets/ec2-1.png)
 
 Select your `key-pair` if you don't have a key-pair create one
 
@@ -108,7 +108,7 @@ In `Connectivity`, make sure you choose the correct values for your customized V
 
 - Add an inbound rule for `All TCP` from `Anywhere` (basically Protocol: `TCP`, Port: `0-65536`, Source: `0.0.0.0/0`)
 
-  ![](./assests/web-sg.png)
+  ![](./assets/web-sg.png)
 
 - Leave everything else as it's and click create
 
@@ -118,9 +118,9 @@ On the EC2 console Select the Instance you created and click on connect which wi
 
 Select SSH client and follow the instructions on how to connect.
 
-![s1](./assests/connect-1.png)
+![s1](./assets/connect-1.png)
 
-![s1](./assests/connect-2.png)
+![s1](./assets/connect-2.png)
 
 ## Step 4 : Update system and install Apache Webserver
 
@@ -128,19 +128,19 @@ To begin, update the package manager cache
 
     sudo apt update; sudo apt install apache2 -y
 
-![image](./assests/install-apache2.png)
+![image](./assets/install-apache2.png)
 
 ## Step 5 : Install PHP v7.4
 
     sudo apt install software-properties-common; sudo add-apt-repository ppa:ondrej/php; sudo apt update; sudo apt-get install -y php7.4 php7.4-cli php7.4-zip php7.4-json php7.4-common php7.4-mysql php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath php7.4-simple php7.4-intl
 
-![image](./assests/install-php.png)
+![image](./assets/install-php.png)
 
 ## Step 6 : Connect to AWS RDS using the Endpoint and Create Database
 
     sudo apt install mysql-client
 
-![image](./assests/mysql-1.png)
+![image](./assets/mysql-1.png)
 
     sudo mysql -h YourRdsEndpoint -u admin -p
 ---
@@ -149,7 +149,7 @@ To begin, update the package manager cache
     show databases;
     exit
 
-![image](./assests/mysql-2.png)
+![image](./assets/mysql-2.png)
 
 ## Step 7 : Install Prestashop v1.7.8.8
 
@@ -157,48 +157,48 @@ Download the zip file and then unzip the downloaded file.
 
     cd /var/www/html; sudo curl -LO https://www.prestashop.com/en/system/files/ps_releases/prestashop_1.7.8.8.zip; sudo apt install unzip; ls; sudo unzip prestashop_1.7.8.8.zip
 
-![image](./assests/install-presta-1.png)
+![image](./assets/install-presta-1.png)
 
 After unzipping the downloaded file, you will get prestashop.zip, and then you can store it in /var/www/html
 
     sudo unzip prestashop.zip; ls
 
-![image](./assests/install-presta-2.png)
+![image](./assets/install-presta-2.png)
 
 The directory permissions need to be set accordingly
 
     sudo chown -R www-data:www-data /var/www/html/; sudo chmod -R 755 /var/www/html/; sudo a2enmod rewrite; sudo systemctl restart apache2.service; sudo rm -rf index.html
 
-![image](./assests/permission.png)
+![image](./assets/permission.png)
 
 
 To complete the installation, go to http://yourpublicipaddress
 
 ## Step 8 : Choose your language then click Next
 
-![image](./assests/set-1.png)
+![image](./assets/set-1.png)
 
 ## Step 9 : Click "Next" after agreeing to the terms and conditions.
 
-![image](./assests/set-2.png)
+![image](./assets/set-2.png)
 
 ## Step 10 : Add information about your store
 
-![image](./assests/set-3.png)
+![image](./assets/set-3.png)
 
 To enable SSL for your e-commerce website, you need to enable SSL
 
 ## Step 11 : Configure your database with the credentials you created when creating your AWS RDS and test the connection
 
-![image](./assests/set-4.png)
+![image](./assets/set-4.png)
 
 After installation, a window will appear
 
-![image](./assests/set-5.png)
+![image](./assets/set-5.png)
 
 Finally, close the window and revist your your ste using http://yourpublicaddress
 
-![image](./assests/set-6.png)
+![image](./assets/set-6.png)
 
 ---
 
