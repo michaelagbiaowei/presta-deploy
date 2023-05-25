@@ -86,7 +86,7 @@ We need to create a publicly accessible RDS instance with minimal cost to hold o
 
 - Finally, create a database
 
-If you checked Auto generate password you'll have a prompt with a blue ribbon in the next page
+If you checked Auto generate password, you'll have a prompt with a blue ribbon in the next page
 
 Click on `View credentials settings` and save the username and password in a safe location.
 
@@ -196,7 +196,7 @@ After installation, a window will appear
 
 ![image](./assets/set-5.png)
 
-Finally, close the window and revist your your ste using http://yourpublicaddress
+Finally, close the window and revisit your site using http://yourpublicaddress
 
 ![image](./assets/set-6.png)
 
